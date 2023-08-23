@@ -382,5 +382,6 @@ Some tips:
 - https://www.printables.com/model/378915-sovol-sv06-buildplate-texture-and-model-for-prusas
 - https://github.com/AndrewEllis93/Ellis-SuperSlicer-Profiles
 - [Klipper Adaptive Meshing & Purging](https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging)
+- [PS print settings based on Ellis' SS print settings](https://github.com/mjonuschat/PrusaSlicer-Profiles)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H0HIHTH)
