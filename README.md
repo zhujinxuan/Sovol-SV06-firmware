@@ -1,17 +1,15 @@
 # 🚨 _One-Stop-Shop_ Klipper Configuration
 
-This branch contains the Klipper configuration and firmware for the **Sovol SV06 Plus** 3D printer.
+This branch contains the Klipper configuration and firmware for the **Sovol SV06** 3D printer.
 
-| Printer                     | Branch                                                                                    |
-| --------------------------- | ----------------------------------------------------------------------------------------- |
-| Sovol SV06                  | ⚡ $\small{\textcolor{darkturquoise}{\text{YOU ARE HERE}}}$ ⚡                            |
-| Sovol SV06 Skr-Mini-E3-V3.0 | [skr-mini-e3-v3](https://github.com/bassamanator/Sovol-SV06-firmware/tree/skr-mini-e3-v3) |
-| Sovol SV06 Plus             | ⚡ $\small{\textcolor{aqua}{\text{YOU ARE HERE}}}$ ⚡                                     |
-| All other printers          | [any-printer](https://github.com/bassamanator/Sovol-SV06-firmware/tree/any-printer)       |
+| Printer                                                         | Branch                                                                                    |
+| --------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| ${\normalsize{\textcolor{darkturquoise}{\texttt{Sovol SV06}}}}$ | ⚡ ${\small{\textcolor{darkturquoise}{\texttt{YOU ARE HERE}}}}$ ⚡                        |
+| Sovol SV06 Skr-Mini-E3-V3.0                                     | [skr-mini-e3-v3](https://github.com/bassamanator/Sovol-SV06-firmware/tree/skr-mini-e3-v3) |
+| Sovol SV06 Plus                                                 | [sv06-plus](https://github.com/bassamanator/Sovol-SV06-firmware/tree/sv06-plus)           |
+| All other printers                                              | [any-printer](https://github.com/bassamanator/Sovol-SV06-firmware/tree/any-printer)       |
 
 I am creating these files for my personal use and cannot be held responsible for what it might do to your printer. Use at your own risk.
-
-🙏🏻 🙌🏻 Big thanks to [blanchas3d](https://github.com/blanchas3d) in testing out this branch and reporting issues.
 
 ## Outline
 
@@ -52,7 +50,7 @@ I am creating these files for my personal use and cannot be held responsible for
 
 ## Stay Up-to-Date
 
-**⭐ Star this project** (Highly recommended, starred users may receive priority over regular users)
+⭐ ${\normalsize{\textcolor{goldenrod}{\texttt{Star this project}}}}$ (Highly recommended, starred users may receive priority over regular users)
 
 Watch for releases and updates.
 
@@ -64,7 +62,6 @@ Although I've made switching over to Klipper as easy as is possible, it can stil
 
 ## Before You Begin
 
-- On the SV06 Plus, your screen will not work if you install Klipper. You can get it working again via the instructions found [here](https://github.com/fryc88/klipper-sv06plus-screen).
 - Read this documentation _fully!_
 - Make sure your printer is in good physical condition, because print and travel speeds will be _a lot faster_ than they were before. Beginner's would be wise to go through the steps mentioned [here](https://github.com/bassamanator/everything-sovol-sv06/blob/main/initialsteps.md). Consider yourself warned.
 - Follow the steps in order.
@@ -120,13 +117,14 @@ You can choose _either_ of the 2 following methods.
 1. `cd ~/printer_data/config`
 2. Empty entire `~/printer_data/config` folder.
    - In linux, you can delete files via `rm fileName` and directories via `rmdir directoryName`.
-3. `git clone -b sv06-plus --single-branch https://github.com/bassamanator/Sovol-SV06-firmware.git .` ⚠️ Don't miss the period!
+   - In linux, you can list files and folders via `ls -lah`.
+3. `git clone -b master --single-branch https://github.com/bassamanator/Sovol-SV06-firmware.git .` ⚠️ Don't miss the period!
 
 #### Method 2: Download the ZIP
 
-1. [Download](https://github.com/bassamanator/Sovol-SV06-firmware/archive/refs/heads/sv06-plus.zip) the `ZIP` file containing the Klipper configuration.
+1. [Download](https://github.com/bassamanator/Sovol-SV06-firmware/archive/refs/heads/master.zip) the `ZIP` file containing the Klipper configuration.
 2. See `Step 2` in `Method 1`.
-3. The parent folder in the `ZIP` is `Sovol-SV06-firmware-sv06-plus`. This is relevant in the next step.
+3. The parent folder in the `ZIP` is `Sovol-SV06-firmware-master`. This is relevant in the next step.
 4. Extract **only** the _contents_ of the parent folder into `~/printer_data/config`.
 
 ## Initial Steps
@@ -166,9 +164,9 @@ You will be pasting/typing these commands into the Mainsail/Fluidd console.
 1. Check to see if `X` and `Y` max positions can be reached, and adjust `position_max`, if necessary. You might be able to go further, which is great, but I recommend leaving a 2mm gap for safety.
    1. `G28`
    2. `G90`
-   3. `G1 X300 F3000`
-   4. `G1 Y300 F3000`
-2. Do a mechanical gantry calibration; `G34`. After the controlled collision against the beam at the top, there will be a 10 second pause for you to verify that both sides of the gantry are pressed up against the `stoppers` at the top. ~~You will hear a succession of beeps.~~
+   3. `G1 X223 F3000`
+   4. `G1 Y223 F3000`
+2. Do a mechanical gantry calibration; `G34`. After the controlled collision against the beam at the top, there will be a 10 second pause for you to verify that both sides of the gantry are pressed up against the `stoppers` at the top. You will hear a succession of beeps.
    1. Figure out your `Z` `position_max` by baby stepping your way up to the beam, and adjust `position_max`, if necessary.
 3. PID tune the bed. Ideally, all PID tuning should occur at the temperatures that you print most at.
    1. `PID_TEST_BED TEMP=70`
@@ -232,11 +230,10 @@ This repository contains many files and folders. Some are _necessary_ for this K
 ├── misc ❌
 │   ├── klipper-v0.11.0-148-g52f4e20c.bin
 │   ├── M503-output.yml
-│   ├── M503-plus-output.yml
+│   ├── marlin-SV06V2.0.0A_2.24.bin
 │   ├── SuperSlicer_config_bundle.ini
 │   ├── sv06-buildPlate.png
-│   ├── SV06Plus-buildPlate.stl
-│   ├── SV06-PLUSfirmware-2.23.rar
+│   ├── SV06-buildPlate.stl
 │   └── SV06-texture.svg
 ├── moonraker.conf ✅
 ├── printer.cfg ✅
@@ -262,8 +259,6 @@ Please see [this discussion](https://github.com/bassamanator/Sovol-SV06-firmware
 Please see [this discussion](https://github.com/bassamanator/Sovol-SV06-firmware/discussions/14).
 
 ##### When does beeping occur?
-
-💡 Beeping will likely not work on the SV06 Plus. I recommend not turning it on.
 
 The printer will beep upon:
 
@@ -358,7 +353,7 @@ Find full instructions [here](https://ellis3dp.com/Print-Tuning-Guide/articles/d
 Some tips:
 
 - Before running with `ITERATIONS=40` with an untested speed/accel value, run with `ITERATIONS=1`.
-- Pay close attention throughout the run, so that you can click **`EMERGENCY STOP`** at a moment's notice.
+- Pay close attention throughout the run, so that you can click ${\small{\textcolor{red}{\texttt{EMERGENCY STOP}}}}$ at a moment's notice.
 - This macro will simply help you determine the maximum speed your printhead and bed can reliably move at, not necessarily print at. The bottleneck for my SV06, for example, is the 15mm/s^2 that the hotend maxes out at (well under 200mm/s actual print speed).
 
 ## Useful Resources
